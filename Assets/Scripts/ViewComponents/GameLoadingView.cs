@@ -5,59 +5,47 @@ using DG.Tweening;
 
 public class GameLoadingView : BaseView
 {
-    public RectTransform bgLeft;
+	public RectTransform bgLeft;
 
-    public RectTransform bgRight;
+	public RectTransform bgRight;
 
-    public RectTransform titleLeft;
+	public RectTransform titleLeft;
 
-    public RectTransform titleRight;
+	public RectTransform titleRight;
+	public override void InitView() { }
+	
+	public override void Start() { }
 
-    public override void InitView()
-    {
+	public override void Update() { }
 
-    }
+	public override void ShowView()
+	{
 
-    public override void Start()
-    {
+		canvasGroup.alpha=1.0f;
 
-    }
+		bgLeft.localPosition    =new Vector3(-240,0,0);
+		bgRight.localPosition   =new Vector3(240,0,0);
+		titleLeft.localPosition =new Vector3(0,0,0);
+		titleRight.localPosition=new Vector3(0,0,0);
+		AudioManager.instance.loadingGameSound.Play();
 
-    public override void Update()
-    {
 
-    }
+		bgLeft.DOLocalMoveX(-400,1f).SetRelative(true).SetDelay(0.5f).SetEase(Ease.Linear);
+		bgRight.DOLocalMoveX(400,1f).SetRelative(true).SetDelay(0.5f).SetEase(Ease.Linear);
+		titleLeft.DOLocalMoveX(-400,1f).SetRelative(true).SetDelay(0.5f).SetEase(Ease.Linear);
+		titleRight.DOLocalMoveX(400,1f).SetRelative(true).SetDelay(0.5f).SetEase(Ease.Linear).OnComplete
+		(
+		() =>
+		{
+			HideView();
+			bgLeft.localPosition    =new Vector3(-240,0,0);
+			bgRight.localPosition   =new Vector3(240,0,0);
+			titleLeft.localPosition =new Vector3(0,0,0);
+			titleRight.localPosition=new Vector3(0,0,0);
 
-    public override void ShowView()
-    {
+		}
+		);
+	}
 
-        canvasGroup.alpha = 1.0f;
-
-        bgLeft.localPosition = new Vector3(-240, 0, 0);
-        bgRight.localPosition = new Vector3(240, 0, 0);
-        titleLeft.localPosition = new Vector3(0, 0, 0);
-        titleRight.localPosition = new Vector3(0, 0, 0);
-        AudioManager.instance.loadingGameSound.Play();
-
-        bgLeft.DOLocalMoveX(-400, 1f).SetRelative(true).SetDelay(0.5f).SetEase(Ease.Linear);
-        bgRight.DOLocalMoveX(400, 1f).SetRelative(true).SetDelay(0.5f).SetEase(Ease.Linear);
-        titleLeft.DOLocalMoveX(-400, 1f).SetRelative(true).SetDelay(0.5f).SetEase(Ease.Linear);
-        titleRight.DOLocalMoveX(400, 1f).SetRelative(true).SetDelay(0.5f).SetEase(Ease.Linear).OnComplete
-            (
-            () =>
-            {
-                HideView();
-                bgLeft.localPosition = new Vector3(-240, 0, 0);
-                bgRight.localPosition = new Vector3(240, 0, 0);
-                titleLeft.localPosition = new Vector3(0, 0, 0);
-                titleRight.localPosition = new Vector3(0, 0, 0);
-               
-            }
-            );
-    }
-
-    public override void HideView()
-    {
-        canvasGroup.alpha = 0.0f;
-    }
+	public override void HideView() { canvasGroup.alpha=0.0f; }
 }
