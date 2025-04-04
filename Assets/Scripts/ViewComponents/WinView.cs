@@ -93,12 +93,12 @@ public class WinView : BaseView
 			GameManager.Instance.currentRewardVictoryProgress=0;
 		}
 
-		if(GameManager.Instance.currentLuckySpinProgress==GameManager.Instance.gamePlaySetting.luckySpinProgressMax)
+		/*if(GameManager.Instance.currentLuckySpinProgress==GameManager.Instance.gamePlaySetting.luckySpinProgressMax)
 		{
 			GameManager.Instance.uiManager.luckyWheelView.InitView();
 			GameManager.Instance.uiManager.luckyWheelView.ShowView();
 			GameManager.Instance.currentLuckySpinProgress=0;
-		}
+		}*/
 
 		PlayerPrefs.SetInt("Spin",GameManager.Instance.currentLuckySpinProgress);
 		PlayerPrefs.SetInt("VictoryReward",GameManager.Instance.currentRewardVictoryProgress);
