@@ -841,8 +841,19 @@ PlayerSettings:
   webGLPowerPreference: 2
   scriptingDefineSymbols:
     Android: MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED
+    EmbeddedLinux: 
+    GameCoreXboxOne: 
+    Nintendo Switch: 
+    PS4: 
+    PS5: 
+    QNX: 
+    Stadia: 
     Standalone: MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED
+    VisionOS: 
+    WebGL: 
+    XboxOne: 
     iPhone: MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED
+    tvOS: 
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
