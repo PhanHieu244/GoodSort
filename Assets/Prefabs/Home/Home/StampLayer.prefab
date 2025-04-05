@@ -144,7 +144,7 @@ RectTransform:
   m_Father: {fileID: 3622259864653933973}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -235,7 +235,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2440363184973029926}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -322,7 +322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1522596163312437771
 RectTransform:
   m_ObjectHideFlags: 0
@@ -394,8 +394,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -27.5}
-  m_SizeDelta: {x: 720, y: -55}
+  m_AnchoredPosition: {x: 0, y: -12.925171}
+  m_SizeDelta: {x: 720, y: -25.8503}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4385204746370619417
 MonoBehaviour:
@@ -462,7 +462,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 720, y: 70}
+  m_SizeDelta: {x: 720, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &7876224811983777536
 MonoBehaviour:
@@ -756,7 +756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8433927335030234496
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1163,6 +1163,10 @@ PrefabInstance:
     - target: {fileID: 6594788464282510684, guid: 1f6df587706a02448b95bf6487ba1338, type: 3}
       propertyPath: m_Name
       value: ComingSoon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594788464282510684, guid: 1f6df587706a02448b95bf6487ba1338, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
