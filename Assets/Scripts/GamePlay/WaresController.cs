@@ -98,7 +98,7 @@ public class WaresController : MonoBehaviour
     {
         //material.color = new Color(0.35f, 0.35f, 0.35f, 1.0f);
         for (int i = 0; i < material.Length; i++)
-            material[i].SetColor("_Color", new Color(0.35f, 0.35f, 0.35f, 1.0f));
+            material[i].SetColor("_AlbedoColor", new Color(0.35f, 0.35f, 0.35f, 1.0f));
     }
 
     public void SetVisible(bool visible)
@@ -110,7 +110,7 @@ public class WaresController : MonoBehaviour
     {
         // material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         for (int i = 0; i < material.Length; i++)
-            material[i].SetColor("_Color", new Color(1.0f, 1.0f, 1.0f, 1.0f));
+            material[i].SetColor("_AlbedoColor", new Color(1.0f, 1.0f, 1.0f, 1.0f));
     }
 
 
