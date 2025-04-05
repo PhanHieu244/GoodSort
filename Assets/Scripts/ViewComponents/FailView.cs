@@ -38,7 +38,7 @@ public class FailView : BaseView
 		}
 		else
 		{
-			GameManager.Instance.uiManager.storeView.ShowView();
+			//GameManager.Instance.uiManager.storeView.ShowView();
 		}
 
 	}
