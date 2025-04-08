@@ -8,6 +8,7 @@ public class GiftPackageView : MonoBehaviour
     public Text packageName;
 
     public Image packageIcon;
+    public Image packageBG;
 
     public Text packagePriceText;
 
@@ -16,6 +17,7 @@ public class GiftPackageView : MonoBehaviour
     public Sprite[] itemSprList;
 
     public Sprite[] packageSprList;
+    public Sprite[] packageBg;
 
     [HideInInspector]
     public GiftPackageItem currentItem;
@@ -40,6 +42,8 @@ public class GiftPackageView : MonoBehaviour
         packageName.text = item.packageName;
         packagePriceText.text = item.packagePrice;
         packageIcon.sprite = packageSprList[item.packID];
+        packageIcon.SetNativeSize();
+        packageBG.sprite = packageBg[item.packID];
         packageID = item.iapPackage;
 
         for (int i = 0; i < giftList.Count; i++)
