@@ -1,12 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.Purchasing;
 
-public class IAPManager : MonoBehaviour
+public class IAPManager : MonoBehaviour, IStoreListener
 {
 
     public static IAPManager instance;
-    /*private static IStoreController m_StoreController;          // The Unity Purchasing system.
-    private static IExtensionProvider m_StoreExtensionProvider; // The store-specific Purchasing subsystems.*/
+    private static IStoreController m_StoreController;          // The Unity Purchasing system.
+    private static IExtensionProvider m_StoreExtensionProvider; // The store-specific Purchasing subsystems.
 
     // Product identifiers for all products capable of being purchased: 
     // "convenience" general identifiers for use with Purchasing, and their store-specific identifier 
@@ -50,11 +51,11 @@ public class IAPManager : MonoBehaviour
     void Start()
     {
         // If we haven't set up the Unity Purchasing reference
-        /*if (m_StoreController == null)
+        if (m_StoreController == null)
         {
             // Begin to configure our connection to Purchasing
             InitializePurchasing();
-        }*/
+        }
     }
 
     // Update is called once per frame
@@ -66,14 +67,14 @@ public class IAPManager : MonoBehaviour
     public void InitializePurchasing()
     {
         // If we have already connected to Purchasing ...
-        /*if (IsInitialized())
+        if (IsInitialized())
         {
             // ... we are done here.
             return;
-        }*/
+        }
 
         // Create a builder, first passing in a suite of Unity provided stores.
-        /*var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
+        var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
 
         // Add a product to sell / restore by way of its identifier, associating the general identifier
         // with its store-specific identifiers.
@@ -92,15 +93,15 @@ public class IAPManager : MonoBehaviour
 
         // Kick off the remainder of the set-up with an asynchrounous call, passing the configuration 
         // and this class' instance. Expect a response either in OnInitialized or OnInitializeFailed.
-        UnityPurchasing.Initialize(this, builder);*/
+        UnityPurchasing.Initialize(this, builder);
     }
 
 
-    /*public bool IsInitialized()
+    public bool IsInitialized()
     {
         // Only say we are initialized if both the Purchasing references are set.
         return m_StoreController != null && m_StoreExtensionProvider != null;
-    }*/
+    }
 
     public void BuyConsumable(Config.IAPPackageID iapID, Action<string, IAP_CALLBACK_STATE> _purchaserManager_Callback)
     {
@@ -139,7 +140,7 @@ public class IAPManager : MonoBehaviour
     {
         //
         // If Purchasing has been initialized ...
-        /*if (IsInitialized())
+        if (IsInitialized())
         {
             // ... look up the Product reference with the general product identifier and the Purchasing 
             // system's products collection.
@@ -167,7 +168,7 @@ public class IAPManager : MonoBehaviour
             // retrying initiailization.
             Debug.Log("BuyProductID FAIL. Not initialized.");
             PurchaserManager_Callback.Invoke(productId, IAP_CALLBACK_STATE.FAIL);
-        }*/
+        }
         //#endif
     }
 
@@ -177,7 +178,7 @@ public class IAPManager : MonoBehaviour
     public void RestorePurchases()
     {
         // If Purchasing has not yet been set up ...
-        /*if (!IsInitialized())
+        if (!IsInitialized())
         {
             // ... report the situation and stop restoring. Consider either waiting longer, or retrying initialization.
             Debug.Log("RestorePurchases FAIL. Not initialized.");
@@ -206,12 +207,11 @@ public class IAPManager : MonoBehaviour
         {
             // We are not running on an Apple device. No work is necessary to restore purchases.
             Debug.Log("RestorePurchases FAIL. Not supported on this platform. Current = " + Application.platform);
-        }*/
+        }
     }
 
 
 
-    /*
     public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
     {
         // Purchasing has succeeded initializing. Collect our Purchasing references.
@@ -225,12 +225,10 @@ public class IAPManager : MonoBehaviour
 
     public void OnInitializeFailed(InitializationFailureReason error)
     {
-        throw new NotImplementedException();
     }
 
     public void OnInitializeFailed(InitializationFailureReason error, string message)
     {
-        throw new NotImplementedException();
     }
 
     public void OnPurchaseFailed(UnityEngine.Purchasing.Product product, PurchaseFailureReason failureReason)
@@ -278,11 +276,8 @@ public class IAPManager : MonoBehaviour
         {
             return "0.01$";
         }
-        /*
-        #1#
 
 
     }
-    */
 
 }
